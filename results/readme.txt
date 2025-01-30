@@ -1,0 +1,1 @@
+This folder should store clustering result
