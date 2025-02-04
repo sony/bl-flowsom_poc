@@ -34,7 +34,6 @@ def get_args():
     parser.add_argument(
         "-s",
         "--seed",
-        default=12345,
         type=int,
         help="seed",
     )
@@ -50,9 +49,10 @@ def main():
     grid_size = (som_div, som_div)
     print("[end]read_csv")
 
-    seed= args.seed
-    random.seed(seed)
-    print("set seed %d"%seed)
+    if args.seed is not None:
+        seed= args.seed
+        random.seed(seed)
+        print("set seed %d"%seed)
     
     print("[start]init_BatchSOM")
     som = BatchSOM(grid_size=grid_size, data=data, beta=0.33)  # initialize batch som
